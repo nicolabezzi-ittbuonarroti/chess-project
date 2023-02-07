@@ -4,31 +4,42 @@ public class Position {
     private int row;
     private char col;
 
-    public Position(int row, int col) {
-        //complete
+    public Position(int row, char col) {
+        this.row = row;
+        this.col = col;
     }
 
     public int getRow() {
-        //complete
+        return row;
     }
 
     public int getCol() {
-        //complete
+        return col;
     }
 
-    public boolean setPosition(int row, int col) {
-        //complete
+    public boolean setPosition(int Newrow, int Newcol) {
+        row = Newrow;
+        col = Newcol;
     }
 
     public boolean setPosition(Position pos) {
-        //complete
+        row = pos.getRow();
+        col = pos.getCol();
     }
 
     public boolean isValid() {
-        //complete
+        boolean out = true;
+        if (row > 8 && col > 'H'){
+            out = false;
+        }
+        return true;
     }
 
     public boolean equals(Position pos) {
-
+        boolean out = false;
+        if (pos.getRow() == row && pos.getCol()==col){
+            out = true;
+        }
+        return out;
     }
 }
