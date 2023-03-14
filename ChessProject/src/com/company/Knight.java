@@ -13,24 +13,23 @@ public class Knight {
         return this.pos;
     }
 
-    public boolean moveTo(Position pos){
-        boolean moved=false;
-        if(this.validMoves().contains(pos)){
-            this.pos = pos;
-            moved = true;
-        }
-        return moved;
-    }
-
-    public ArrayList<Position> validMoves(){
-        ArrayList<Position> validMoves = new ArrayList<Position>();
-        for(int i = 0; i<8; i++){
-            for(int j = 'a'; j<'h'; j++){       //non so come fare
-                if(new Position(i,j).isValid()){
-                    validMoves.add(new Position(i,j));
-                }
+    public boolean move(int newRow, char newColumn) {
+        if (isValidMove(newRow, newColumn)) {
+            if (newRow >= 1 && newRow <= 8 && newColumn >= 'a' && newColumn <= 'h') {
+                pos.setPosition(newRow, newColumn);
+                return true;
             }
         }
-        return validMoves;
+        return false;
+    }
+
+    private boolean isValidMove(int newRow, char newColumn) {
+        int rowDiff = Math.abs(newRow - pos.getRow());
+        int colDiff = Math.abs(newColumn - pos.getCol());
+        
+        if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
+            return true;
+        }
+        return false;
     }
 }
