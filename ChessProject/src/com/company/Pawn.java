@@ -13,24 +13,26 @@ public class Pawn {
         return this.pos;
     }
 
-    public boolean moveTo(Position pos){
-        boolean moved=false;
-        if(this.validMoves().contains(pos)){
-            this.pos = pos;
-            moved = true;
-        }
-        return moved;
-    }
-
-    public ArrayList<Position> validMoves(){
-        ArrayList<Position> validMoves = new ArrayList<Position>();
-        for(int i = 0; i<8; i++){
-            for(int j = 'a'; j<'h'; j++){       //non so come fare
-                if(new Position(i,j).isValid()){
-                    validMoves.add(new Position(i,j));
-                }
+    public boolean move(int newRow, char newColumn) {
+        if (isValidMove(newRow, newColumn)) {
+            if (newRow >= 1 && newRow <= 8 && newColumn >= 'a' && newColumn <= 'h') {
+                pos.setPosition(newRow, newColumn);
+                return true;
             }
         }
-        return validMoves;
+        return false;
+    }
+
+    private boolean isValidMove(int newRow, char newColumn) {
+        if (newRow != pos.getRow() + 1) {
+            return false;
+        }
+
+        if (newColumn != pos.getCol() && Math.abs(newColumn - pos.getCol()) != 1) {
+            return false;
+        }
+
+        return true;
     }
 }
+

@@ -29,7 +29,7 @@ public class Position {
 
     public boolean isValid() {
         boolean out = true;
-        if (row > 8 && col > 'H'){
+        if (row > 8 && col > 'H' || row < 1 && col < 'A'){
             out = false;
         }
         return true;
