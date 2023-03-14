@@ -27,13 +27,6 @@ public class Position {
         col = pos.getCol();
     }
 
-    public boolean isValid() {
-        boolean out = true;
-        if (row > 8 && col > 'H' || row < 1 && col < 'A'){
-            out = false;
-        }
-        return true;
-    }
 
     public boolean equals(Position pos) {
         boolean out = false;

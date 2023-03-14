@@ -1,10 +1,10 @@
 package com.company;
 
 
-public class Bishop {
+public class Rook {
     private Position pos;
 
-    public Bishop(Position pos){
+    public Rook(Position pos){
         this.pos = pos;
     }
 
@@ -25,7 +25,7 @@ public class Bishop {
         int rowDiff = Math.abs(newRow - pos.getRow());
         int colDiff = Math.abs(newColumn - pos.getCol());
 
-        if (rowDiff == colDiff) {
+        if ((rowDiff == 0 && colDiff > 0) || (rowDiff > 0 && colDiff == 0)) {
             return true;
         }
 
