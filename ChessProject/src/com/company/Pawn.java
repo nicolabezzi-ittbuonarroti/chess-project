@@ -25,7 +25,7 @@ public class Pawn {
     public ArrayList<Position> validMoves(){
         ArrayList<Position> validMoves = new ArrayList<Position>();
         for(int i = 0; i<8; i++){
-            for(int j = 0; j<8; j++){
+            for(int j = 'a'; j<'h'; j++){       //non so come fare
                 if(new Position(i,j).isValid()){
                     validMoves.add(new Position(i,j));
                 }

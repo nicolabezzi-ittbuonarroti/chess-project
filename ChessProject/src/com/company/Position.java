@@ -13,16 +13,16 @@ public class Position {
         return row;
     }
 
-    public int getCol() {
+    public char getCol() {
         return col;
     }
 
-    public boolean setPosition(int Newrow, int Newcol) {
+    public void setPosition(int Newrow, char Newcol) {
         row = Newrow;
         col = Newcol;
     }
 
-    public boolean setPosition(Position pos) {
+    public void setPosition(Position pos) {
         row = pos.getRow();
         col = pos.getCol();
     }
